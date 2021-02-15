@@ -1,0 +1,28 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "ec2:CopySnapshot",
+                "ec2:ModifySnapshotAttribute",
+                "ec2:CreateTags"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "InspectSnapshots"
+        },
+        {
+            "Action": [
+                "kms:Decrypt",
+                "kms:Encrypt",
+                "kms:ReEncrypt*",
+                "kms:CreateGrant",
+                "kms:GenerateDataKeyWithoutPlaintext",
+                "kms:PutKeyPolicy"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "EncryptedSnapshots"
+        }
+    ]
+}

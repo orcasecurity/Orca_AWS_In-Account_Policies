@@ -1,0 +1,26 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "ec2:CreateSnapshot",
+                "ec2:CreateSnapshots",
+                "ec2:CreateTags"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "InspectSnapshots"
+        },
+        {
+            "Condition": {
+                "StringLike": {
+                    "ec2:ResourceTag/Orca": "*"
+                }
+            },
+            "Action": "ec2:DeleteSnapshot",
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "DeleteSnapshots"
+        }
+    ]
+}
